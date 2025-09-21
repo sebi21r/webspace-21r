@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/stylesheets/projects.css">
+    <link rel="stylesheet" href="/stylesheets/tutorials.css">
+    
+    <script src="/scripts/tutorials.js"></script>
+
+
+    <title>Unknown - Tutorials - Minecraft Commands</title>
+</head>
+<body onload="imgCentralization()">
+
+    <div class="nav-bar">
+        <ul>
+            <li class="nav-item active"><a href="/en/tutorials.html">Back to Tutorials</a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <div class="left-column">
+            <div class="text box-shadow">
+                <h1>Minecraft Commands</h1>
+                <br>
+                <p>
+                    Here, I will be posting a lot of Tutorials for Minecraft Commands.
+                    I will show you, how individual Commands work and what surprising things
+                    you can create with them!
+                </p>
+                <p>
+                    Although I will only talk about normal Commands and everything I will
+                    talk about will be entirely possible in Commandblocks. If you want 
+                    to do mor (e.g. Mapmaking), I would highly recommend checking my
+                    Datapack Tutorials out (and creating a Datapack).
+
+                </p>
+                <p>
+                    Disclaimer: currently there are no Tutorials for Datapacks, but there will be!
+                </p>
+            </div>
+            <p class="category">Minigames</p><div class="text box-shadow" id="spawnsystem">
+                <button class="small-text collapsible" onclick="togglecollapse(0)">Minecraft Spawnsystem</button>
+                <div class="collapsible-content"><button onclick="widecontent(0)" class="wide-content-button">
+                            <img src="/pics/icons/icon-wide-content.svg" class="wcb—img-wide">
+                            <img src="/pics/icons/icon-split-content.svg" class="wcb—img-small hidden">
+                        </button>
+                <h1>What do I need this for?
+              </h1>
+                <p>This System was developed for anyone, who wants to create Minigames in Minecraft, which need multiple Spawnplatforms on which Players will be distributed randomly.
+               </p>
+                <p>That being said, you don't have to teleport Players, this will work with any Entity.
+               </p>
+                <h1>Redstone
+              </h1>
+                <p>If you use these Commands with Commandblocks and Redstone, you'll just need a simple Redstone Circut.
+               </p>
+                <img src="/pics/tutorials/mc_spawnsystem/redstone.png">
+               </img>
+                <p>You will need 5 chained Commandblocks, the first one of them being a repeating Commandblock(needs Redstone). Next you'll need a Comparator, which activates, when the first Commandblock is successful. This Comparator will make sure, that the Commandblock chain isn't continuously running. When the Comparator deactivates, a Redstone torch will activate, which activates the Reset Command.
+               </p>
+                <p>That's it! Wasn't that bad, was it?
+               </p>
+                <h1>Commands
+              </h1>
+                <p>Now we come to the fun part! Just make sure, that, when writing the Commands, you already have the Lobby and Spawnplatforms ready.
+               </p>
+                <p>The first Command is just for detecting, if there are Players in the Lobby. The position of the Lobby will be x<sub>1</sub> y<sub>1</sub> and z<sub>1</sub> and should be in the middle of the Lobby. I'll use <code>distance=5..</code>, because the Lobby 5 Blocks diagonally. Keep in mind that the Distance is spherical!
+               </p>
+                <code>execute positioned x<sub>1</sub> y<sub>1</sub> z<sub>1</sub> if entity @e[type=player, distance=..5]
+               </code>
+                <p>In the second Command we give every Player, which doesn't yet have a tag, a tag, so we can easily teleport and select them later.
+               </p>
+                <code>execute positioned x<sub>1</sub> y<sub>1</sub> z<sub>1</sub> as @e[type=player, distance=..5, tag=!tag] at @s if entity @s run tag @s add tag
+               </code>
+                <p>Let's move on from the Lobby and position our command in the middle of the Spawnplatforms(x<sub>2</sub> y<sub>2</sub> z<sub>2</sub>) and spawn a Marker with the tag "spawnsys_marker". We use <code>distance=7..</code> to be sure, that we'll check for the marker.
+               </p>
+                <code>execute positioned x<sub>2</sub> y<sub>2</sub> z<sub>2</sub> unless entity @e[tag=spawnsys_marker, distance=..7] run summon marker ~ ~ ~ {Tags:["spawnsys_marker"]}
+               </code>
+                <p>The following command is a bit more complicated, because this will be the command, in which we randomly teleport the marker. At first, we will check if there's a Player in the Lobby, if that's the case, the spreadplayers command will be executed at the Spawnplatforms. Spreadplayers needs the x<sub>2</sub> and z<sub>2</sub> coordinates only, because it always teleports to the highest block, if you don't want that to happen (e.g. You have a Roof), you just tell it to teleport to the highest block, under a certain Y-Level (<code>under y<sub>3</sub></code>). After x<sub>2</sub> and z<sub>2</sub>, the Syntax wants us to declare the distance between the teleporting Entities (the marker) and the distance of how far away they will be teleported. Important! The distance in this case is not spherical, unlike the distance in the selector, but a square. Finally we must tell it if teams should be considered and the selector.
+               </p>
+                <code>execute as @e[tag=spawnsys_marker] at @s positioned x<sub>1</sub> y<sub>1</sub> z<sub>1</sub> if entity @e[tag=tag, distance=..5] run spreadplayers x<sub>2</sub> z<sub>2</sub> 1 5 under y<sub>3</sub> false @s
+               </code>
+                <p>The Second to last Command! The Command first checks, if the marker is ontop of a Spawnplatform(in my case blue_wool). If that is the case, it checks for players in the Lobby and finally teleports 1 player to the marker. Done! Almost...
+               </p>
+                <code>execute as @e[tag=spawnsys_marker] at @s if block ~ ~-1 ~ blue_wool positioned x<sub>1</sub> y<sub>1</sub> z<sub>1</sub> if entity @e[tag=tag, distance=..5] run tp @e[tag=tag, distance=..5, limit=1] @s
+               </code>
+                <p>The only thing left, is the Reset, which removes the marker.
+               </p>
+                <code>kill @e[tag=spawnsys_marker]
+               </code></div>
+            </div>
+
+        </div>
+        <div class="right-column">
+            <div class="text box-shadow content-bookmarks">
+                <h1>Content</h1>
+                <p class="content-category">
+                    Minigames
+                </p>
+                <p>
+                    <a href="#spawnsystem">Tutorial about a Minecraft Spawnsystem</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

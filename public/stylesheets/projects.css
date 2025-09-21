@@ -1,0 +1,25 @@
+
+.link {
+
+    color: var(--base-accent);
+    border-color: var(--base-accent);
+    border-radius: 50px;
+    border-style: solid;
+    background-color: var(--base-orange);
+    font-size: 1.125em;
+
+}
+
+.link:hover {
+
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.5);
+
+}
+
+.content-bookmarks a {
+
+    color: purple;
+    font-size: 1.05em;
+
+}

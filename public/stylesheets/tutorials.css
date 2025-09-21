@@ -1,0 +1,271 @@
+/* General */
+.text {
+
+    transition-duration: 150ms;
+
+}
+
+.text  img {
+
+    max-height: 300px;
+    max-width: 90%;
+
+}
+
+.category::before {
+
+    content: "";
+    background-color: gray;
+    height: 3px;
+    width: 40%;
+    float: left;
+    position: absolute;
+    top: 0.5em;
+    left: 0%;
+
+}
+.category {
+
+    color: gray;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    width: 615px;
+
+}
+.category::after {
+
+    content: "";
+    background-color: gray;
+    height: 3px;
+    width: 40%;
+    float: right;
+    position: absolute;
+    top: 0.5em;
+    right: 0%;
+
+}
+
+
+.content-category {
+
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+
+}
+.content-category::before,
+.content-category::after {
+
+    content: "";
+    background-color: black;
+    height: 3px;
+    width: 5ch;
+    display: inline-block;
+    margin-bottom: 0.25em;
+
+}
+
+.content-bookmarks {
+
+    position: sticky;
+    top: 10;
+
+}
+
+code {
+
+    font-family: monospace;
+    font-size: 1.125em;
+    background-color: rgb(70, 70, 70);
+    border: black 1px solid;
+    border-radius: 2px;
+    padding: 1px;
+    margin-bottom: 2px;
+    margin-right: 1px;
+    color: white;
+    line-height: 20px;
+
+}
+
+sub {
+
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    bottom: -.25em;
+    
+}
+
+/* Collapsible Tutorials */
+.collapsible {
+
+    width: 100%;
+    background-color: var(--base-orange);
+    border: none;
+    text-align: left;
+    color: gray;
+
+}
+
+.collapsible:hover {
+
+    cursor: pointer;
+
+}
+
+.collapsible:after {
+
+    content: "▶";
+    float: right;
+
+}
+
+.collapsible-content {
+
+    height: 0;
+    overflow: hidden;
+
+    transition: height 150ms ease-in-out;
+
+}
+
+.collapsible-content h1 {
+
+    margin-top: 10px;
+
+}
+
+.active-collapsible {
+
+    color: rgb(90, 80, 255)
+
+}
+
+.active-collapsible:after {
+
+    content: "▼";
+
+}
+
+/* Wide Content Mode */
+
+.wide-content-button {
+
+    float: right;
+    width: 30px;
+    aspect-ratio: 1/1;
+    background-color: var(--base-orange);
+    border: none;
+    cursor: pointer;
+}
+
+.wide-content-button img {
+
+    width: 30px;
+    height: 30px;
+    margin-left: -10px;
+    object-fit: contain;
+
+}
+
+.wide-content .right-column {
+
+    display: none;
+
+}
+
+.wide-content .left-column {
+
+    width: 100%;
+
+}
+
+.wide-content .text,
+.wide-content .category {
+
+    width: 1000px;
+    margin-left: calc((100% - 1000px)/2 - var(--padding));
+
+}
+
+@media (width < 1600px) {
+
+    .wide-content .text {
+
+        width: 750px;
+        margin-left: calc((100% - 750px)/2 - var(--padding));
+
+    }
+
+    .category {
+
+        width: 450px;
+
+    }
+    .category::before,
+    .category::after {
+
+        width: 35%;
+
+    }
+    
+}
+
+@media (width < 1100px) {
+
+    .wide-content-button {
+
+        display: none;
+
+    }
+    .category::after {
+
+        right: -10%;
+
+    }
+    .category::before {
+
+        left: -10%;
+        
+    }
+    
+}
+
+@media (width < 700px) {
+
+    .category {
+
+        width: 90%;
+
+    }
+    .category::after {
+
+        right: 0%;
+
+    }
+    .category::before {
+
+        left: 0%;
+        
+    }
+    
+}
+
+@media (width < 615px) {
+
+    .category {
+
+        width: 100%;
+
+    }
+
+    .category::before,
+    .category::after {
+
+        width: 30%;
+
+    }
+    
+}

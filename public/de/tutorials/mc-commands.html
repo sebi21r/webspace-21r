@@ -1,0 +1,126 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/stylesheets/projects.css">
+    <link rel="stylesheet" href="/stylesheets/tutorials.css">
+    
+    <script src="/scripts/tutorials.js"></script>
+
+
+    <title>Unknown - Website Blog</title>
+</head>
+<body onload="imgCentralization()">
+
+    <div class="nav-bar">
+        <ul>
+            <li class="nav-item active"><a href="/de/tutorials.html">Zurück zu Tutorials</a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <div class="left-column">
+            <div class="text box-shadow">
+                <h1>Minecraft Befehle</h1>
+                <br>
+                <p>
+                    Hier wird es eine Menge an Tutorials für Minecraft Befehle geben.
+                    Ich werde dir zeigen, wie einzelne Befehle funktionieren und was für überraschende
+                    Sachen du damit machen kannst! 
+                </p>
+                <p>
+                    Allerdings werde ich hier nur über normale Befehle reden und alles was 
+                    ich hier bespreche wird in Befehlsblöcken möglich sein. Falls du aber
+                    noch mehr machen möchtest (z.B. Mapmaking), dann würde ich dir dringenst
+                    empfehlen in die Tutorials für Datapacks zu schauen (und natürlich ein Datapack zu machen).
+
+                </p>
+                <p>
+                    Vorwarnung: aktuell gibt es noch keine Tutorials für Datapacks, aber sie werden kommen!
+                </p>
+            </div>
+            <p class="category">Minigames</p>
+            <div class="text box-shadow" id="spawnsystem">
+                <button class="small-text collapsible" onclick="togglecollapse(0)">Minecraft Spawnsystem</button>
+                <div class="collapsible-content"><button onclick="widecontent(0)" class="wide-content-button">
+                            <img src="/pics/icons/icon-wide-content.svg" class="wcb—img-wide">
+                            <img src="/pics/icons/icon-split-content.svg" class="wcb—img-small hidden">
+                        </button>
+                <h1>Wofür brauche ich das?
+              </h1>
+                <p>Diese Technik wurde für alle entwickelt, die Minigames in Minecraft machen wollen, welche mehrere Spawn-Plattformen brauchen, auf welchen die Spieler zufällig aufgeteilt werden sollen.
+               </p>
+                <p>Man muss aber nicht unbedingt Spieler zufällig aufteilen.
+               </p>
+                <h1>Redstone
+              </h1>
+                <p>Falls du die Befehle mit Befehlsblöcken und Redstone ausführst, brauchst du nur eine einfache Technik, um alles zum Laufen zu kriegen.
+               </p>
+                <img src="/pics/tutorials/mc_spawnsystem/redstone.png">
+               </img>
+                <p>Du brauchst 5 aneinander gereihte Befehlsblöcke, von dem der erste ein wiederholender Befehlsblock ist (braucht Redstone). Als nächstes braucht man einen Komperator, welcher sich erst aktiviert, wenn der wiederholende Befehlsblock ein Komperator-Output ausgibt. Dieser Komperator sorgt dafür, dass die Befehlsblockreihe nicht durchgängig aktiv ist. Sobald der Komperator sich wieder deaktiviert, dass heißt, wenn die Spieler alle wegteleportiert wurden, wird eine Redstonefackel aktiviert, wodurch ein Resetbefehl ausgeführt wird.
+               </p>
+                <p> Das war all die Technik! Nicht so schwer, oder?
+               </p>
+                <h1>Befehle
+              </h1>
+                <p>Schon kommen wir zu den Befehlen! Wenn du jetzt die Befehle schreibst, dann musst du die Bereiche, in welchen die Spieler sind und wo die Spieler hinteleportiert werden sollen, schon bereit haben!
+               </p>
+                <p>
+                    Der erste Befehl ist ausschließlich dafür da, zu erkennen, ob Spieler in der Lobby sind! Die Position der Lobby wird mit x<sub>1</sub> y<sub>1</sub> und z<sub>1</sub> gekennzeichnet und sollte Möglichst mittig in der Lobby sein. Wir verwenden <code>distance=..5</code> weil die Lobby 5 Blöcke in der Diagonale groß ist. Bedenke, dass die Distanz kugelförmig ist.
+                </p>
+                <code>execute positioned x<sub>1</sub> y<sub>1</sub> z<sub>1</sub> if entity @e[type=player, distance=..5]
+               </code>
+                <p>
+                    Im zweiten Befehl fügen wir allen Spielern, welche in der Lobby sind und noch kein Etikett haben, ein Etikett hinzu, mit welchem wir die Spieler später einfacher auswählen und teleportieren können.
+               </p>
+                <code>execute positioned x<sub>1</sub> y<sub>1</sub> z<sub>1</sub> as @e[type=player, distance=..5, tag=!Etikett] at @s if entity @s run tag @s add Etikett
+               </code>
+                <p>
+                    Jetzt gehen wir weg von der Lobby und positionieren unserern Befehl mittig in den Spawnplattformen(x<sub>2</sub> y<sub>2</sub> z<sub>2</sub>) und spawnen dort einen Marker mit dem Etikett "spawnsys_marker".Wir verwenden <code>distance=..7</code> um sicher zu gehen, dass noch kein Marker dort ist.
+                </p>
+                <code>execute positioned x<sub>2</sub> y<sub>2</sub> z<sub>2</sub> unless entity @e[tag=spawnsys_marker, distance=..7] run summon marker ~ ~ ~ {Tags:["spawnsys_marker"]}
+               </code>
+                <p>
+                    Der folgende Befehl ist etwas komlizierter, denn das ist der Befehl in dem wir den Marker zufällig teleportieren. Zuerst schauen wir, ob ein Spieler in der Lobby ist und falls das der Fall ist führen wir den Spreadplayersbefehl bei den Spawnplattformen aus. Hier werden nur x<sub>2</sub> und z<sub>2</sub> gebraucht, da der Spreadplayersbefehl immer an die höchste Stelle teleportiert, wenn du nicht willst, dass das passiert (z.B. Wenn du ein Dach hast) musst du noch angeben unter welchem Y-Wert teleportiert werden soll (<code>under y<sub>3</sub></code>).
+                    Nachdem x<sub>2</sub> und z<sub>2</sub> angegeben wurden, kommt die Distanz zwischen den zu verteilenden Entitäten(in unserem Fall nur der Marker) und danach die Distanz in welcher der Marker zufällig verteilt werden soll. 
+                    Wichtig! Die Distanz ist beim Spreadplayersbefehl nicht kugelförmig, sondern quadratisch! <code>false</code> steht dafür, ob teams berücksichtigt werden sollen und als letztes kommt nur noch der Selektor.
+               </p>
+                    <code>execute as @e[tag=spawnsys_marker] at @s positioned x<sub>1</sub> y<sub>1</sub> z<sub>1</sub> if entity @e[tag=Etikett, distance=..5] run spreadplayers x<sub>2</sub> z<sub>2</sub> 1 5 under y<sub>3</sub> false @s
+                   </code>
+                <p>
+                    Im vorletzten Befehl wird überprüft, ob der Marker auf einer Spawnplattform(in meinem fall blue_wool) steht. Falls das der Fall ist, wird nocheinmal überprüft, ob ein Spieler in der Lobby ist.
+                    Wenn dies auch der Fall ist wird schließlich der Spieler zum Marker teleportiert. Fertig! Fast..
+                </p>
+
+                <code>
+                    execute as @e[tag=spawnsys_marker] at @s if block ~ ~-1 ~ blue_wool positioned x<sub>1</sub> y<sub>1</sub> z<sub>1</sub> if entity @e[tag=Etikett, distance=..5] run tp @e[tag=Etikett, distance=..5, limit=1] @s
+                </code>
+
+                <p>
+                    Denn es fehlt noch der Resetbefehl, welcher den Marker entfernt.
+                </p>
+
+                <code>
+                    kill @e[tag=spawnsys_marker]
+                </code>
+                
+                </div>
+            </div>
+
+        </div>
+        <div class="right-column">
+            <div class="text box-shadow content-bookmarks">
+                <h1>Inhalt</h1>
+                <p class="content-category">Minigames</p>
+                <p>
+                    <a href="#spawnsystem">Tutorial über ein Minecraft Spawnsystem</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

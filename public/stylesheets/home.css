@@ -1,0 +1,62 @@
+
+:root {
+
+    --pic-corner-width: 400px;
+
+}
+
+.pic-corner {
+
+    width: var(--pic-corner-width);
+    height: calc(var(--pic-corner-width) + 1.125em + 18*2);
+    display: inline-block;
+
+    border-radius: 20px;
+    background-color: var(--base-orange);
+    padding-inline: var(--padding);
+    padding-bottom: var(--padding);
+
+
+}
+
+.right {
+
+    margin-left: calc(100% - var(--pic-corner-width) - var(--padding)*2);
+
+}
+
+.pic-corner img {
+
+    object-fit: cover;
+    
+    width: var(--pic-corner-width);
+    height: var(--pic-corner-width);
+    border-radius: 20px;
+
+}
+
+.small {
+
+    --pic-corner-width: 300px;
+
+}
+
+@media (width < 1600px) {
+
+    .pic-corner {
+
+        margin: 0;
+
+    }
+    
+}
+
+@media (width < 420px) {
+
+    :root {
+
+        --pic-corner-width: 300px;
+
+    }
+    
+}

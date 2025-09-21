@@ -1,0 +1,97 @@
+
+.content {
+
+    display: inherit;
+
+}
+.text > p {
+
+    position: relative;
+    top: -30px;
+}
+.shrine {
+
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.shrine > .text {
+
+    width: auto;
+    min-width: 615px;
+    max-width: 1000px;
+    border: 16px solid transparent;
+    box-shadow: 5px 5px 20px black;
+    text-align: center;
+    
+
+}
+
+#minecraft > .text {
+    
+    width: auto;
+    min-width: 615px;
+    max-width: 1000px;
+    border: 16px solid transparent;
+    border-image: url(/pics/shrines/grass.png) 20 repeat;
+    box-shadow: 5px 5px 20px black;
+
+}
+
+#minecraft {
+
+    background-image: url(/pics/shrines/dirt.png);
+    background-size: 48px;
+
+}
+#satisfactory {
+
+    /*Keep this at least for inspiration*/
+    background-image: repeating-linear-gradient(45deg, yellow 0% 2.5%, black 2.5% 5%);
+
+}
+#satisfactory > .text {
+
+    border: 40px solid transparent;
+    border-image: url(/pics/shrines/SatisBorder.png) 150 round;
+    border-image-outset: 20px;
+}
+#satisfactory .title-img {
+
+    position: relative;
+    top: -30px;
+
+}
+#satisfactory {
+
+    margin-top: 20px;
+
+}
+
+.title-img {
+
+    max-height: 100px;
+
+}
+.title-img > img {
+
+    max-height: 100px;
+    object-fit: contain;
+
+}
+
+footer {
+
+    font-size: 12px;
+    position: relative;
+    bottom: -20px; /*Perfect offset for Satis*/
+    font-family: sans-serif;
+
+}
+
+/*Make a script that automagically
+ adjusts the offset for each shrine,
+ because each shrine has a diffrent border
+ probably*/
