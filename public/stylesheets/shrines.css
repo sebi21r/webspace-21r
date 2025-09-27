@@ -35,14 +35,14 @@
     min-width: 615px;
     max-width: 1000px;
     border: 16px solid transparent;
-    border-image: url(/pics/shrines/grass.png) 20 repeat;
+    border-image: url(/assets/images/shrines/grass.png) 20 repeat;
     box-shadow: 5px 5px 20px black;
 
 }
 
 #minecraft {
 
-    background-image: url(/pics/shrines/dirt.png);
+    background-image: url(/assets/images/shrines/dirt.png);
     background-size: 48px;
 
 }
@@ -55,7 +55,7 @@
 #satisfactory > .text {
 
     border: 40px solid transparent;
-    border-image: url(/pics/shrines/SatisBorder.png) 150 round;
+    border-image: url(/assets/images/shrines/SatisBorder.png) 150 round;
     border-image-outset: 20px;
 }
 #satisfactory .title-img {
