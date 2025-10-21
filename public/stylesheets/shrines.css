@@ -14,6 +14,11 @@
     padding-top: 20px;
     display: flex;
     justify-content: center;
+    border: 0px transparent solid;
+    border-radius: 10px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
 
 }
 
@@ -21,35 +26,66 @@
 
     width: auto;
     min-width: 615px;
-    max-width: 1000px;
+    max-width: 810px;
     border: 16px solid transparent;
     box-shadow: 5px 5px 20px black;
     text-align: center;
     
 
 }
+.title-img {
 
-#minecraft > .text {
-    
-    width: auto;
-    min-width: 615px;
-    max-width: 1000px;
-    border: 16px solid transparent;
-    border-image: url(/assets/images/shrines/grass.png) 20 repeat;
-    box-shadow: 5px 5px 20px black;
+    max-height: 100px;
+
+}
+.title-img  img {
+
+    max-height: 100px;
+    object-fit: contain;
 
 }
 
+
+/*I have figured out a formular
+for the best offset for the footer:
+ formular is 20-borderwidth*/
+
+#intro > .text {
+
+    background-color: var(--base-orange);
+
+}
+#intro {
+
+    background-color: var(--base-accent);
+
+}
+
+#minecraft > .text {
+    
+    border: 16px solid transparent;
+    border-image: url(/assets/images/shrines/grass.png) 20 repeat;
+
+}
 #minecraft {
 
     background-image: url(/assets/images/shrines/dirt.png);
     background-size: 48px;
 
 }
+#minecraft  footer {
+
+    font-size: 12px;
+    position: relative;
+    bottom: 4px; 
+    font-family: sans-serif;
+
+}
+
 #satisfactory {
 
     /*Keep this at least for inspiration*/
-    background-image: repeating-linear-gradient(45deg, yellow 0% 2.5%, black 2.5% 5%);
+    background-image: repeating-linear-gradient(40deg, rgb(250,149,73) 0% 3%, rgb(95,102,140) 3% 5%);
 
 }
 #satisfactory > .text {
@@ -64,34 +100,12 @@
     top: -30px;
 
 }
-#satisfactory {
-
-    margin-top: 20px;
-
-}
-
-.title-img {
-
-    max-height: 100px;
-
-}
-.title-img > img {
-
-    max-height: 100px;
-    object-fit: contain;
-
-}
-
-footer {
+#satisfactory  footer {
 
     font-size: 12px;
     position: relative;
-    bottom: -20px; /*Perfect offset for Satis*/
+    bottom: -20px; 
     font-family: sans-serif;
 
 }
 
-/*Make a script that automagically
- adjusts the offset for each shrine,
- because each shrine has a diffrent border
- probably*/
