@@ -12,19 +12,23 @@
     margin-bottom: 20px;
     overflow: hidden;
 
-    background-image: url(pics/banner.png);
+    background-image: url(assets/images/landing/banner.png);
     object-fit: cover;
     background-position-x: center;
 
 }
 
 
-.content > h1 {
+.content h1 {
 
     width: 100%;
     color: white;
     text-align: center;
 
+}
+
+.lang-text {
+    width: 100%;
 }
 
 .welcome-text {
@@ -42,52 +46,83 @@
 
 }
 
-#deutsch,
-#english {
+.lang-btn {
 
     aspect-ratio: 5/1;
-    width: 450px;
+    width: 300px;
     background-size: cover;
     background-color: rgba(0,0,0,0);
     border: none;
     filter: grayscale(100);
-    margin-left: calc(50% - (450px/2));
+    margin-left: calc(50% - (300px/2));
 
 }
 
-#deutsch {
+#deutsch-btn {
 
-    background-image: url(pics/deutsch.png);
-
-}
-#english {
-
-    background-image: url(pics/english.png);
+    background-image: url(assets/images/landing/deutsch.png);
 
 }
+#english-btn {
 
-#deutsch:hover,
-#english:hover {
+    background-image: url(assets/images/landing/english.png);
+
+}
+
+.lang-btn:hover {
     
     filter: grayscale(0);
     cursor: pointer;
 
 }
 
+.enter-btn {
+    
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    text-align: center;
+}
+
+.enter-btn img {
+    background-size: cover;
+    width: 50%;
+}
+
+@media (width < 1100px) {
+
+    .lang-btn {
+        margin-right: calc(50% - (300px/2));
+    }
+    
+}
+
+@media (width < 900px) {
+
+    .enter-btn img {
+
+        width: 80%;
+
+    }
+    
+}
+
 
 @media (width < 700px) {
 
-    #deutsch,
-    #english {
-
-        width: 300px;
-        margin-left: calc(50% - (300px/2));
-
-    }
+    
     .banner {
 
         border: none;
         box-shadow: none;
+    }
+    
+}
+
+@media (width < 500px) {
+
+    .enter-btn img {
+        width: 100%;
     }
     
 }

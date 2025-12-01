@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/index.css">
 
     <script src="/scripts/script.js"></script>
+    <script src="/scripts/index.js"></script>
 
     <title>Webspace 2(1r)</title>
 </head>
@@ -15,32 +16,59 @@
     <div class="banner">
     </div>
     <div class="content">
-        <h1>Willkommen auf dieser Website!</h1>
-        <h1>Welcome to this Website!</h1>
 
-        <div class="welcome-text">
-            <p>Willkommen auf meiner Website! Hier gibt es 
-                ein paar Tutorials, Projekte und sonstige 
-                Sachen, die ich hier hochlade.
-            </p>
-            <p>
-                Diese Seite nutzt Javascript, aber keine Angst, ich stehle deine Daten nicht!
-            </p>
-            <br>
-            <p>Welcome to my Website! Here are a few
-                Tutorials, Projects and other Stuff, 
-                that I decide to upload.
-            </p>
-            <p>
-                This Site uses Javascript, but don't worry, I'm not stealing your data!
-            </p>
+        <!-- W O W !   D I V I D E R   ---------------------------->
+
+        <div class="english lang-text">
+            <h1>Welcome to this Website!</h1>
+
+            <div class="welcome-text">
+                <p>Welcome to my Website! Here are a few
+                    Tutorials, Projects and other Stuff, 
+                    that I decide to upload.
+                </p>
+                <p>
+                    This Site uses Javascript, but don't worry, I'm not stealing your data!
+                </p>
+            </div>
         </div>
+
+
+        <div class="german lang-text hidden">
+            <h1>Willkommen auf dieser Website!</h1>
+
+            <div class="welcome-text">
+                <p>Willkommen auf meiner Website! Hier gibt es 
+                    ein paar Tutorials, Projekte und sonstige 
+                    Sachen, die ich hier hochlade.
+                </p>
+                <p>
+                    Diese Seite nutzt Javascript, aber keine Angst, ich stehle deine Daten nicht!
+                </p>
+            </div>
+
+        </div>
+
+        <!-- W O W !   D I V I D E R   ---------------------------->
+
         <div class="left-column">
-            <button id="english" onclick="linkto('en/home')"></button>
+            <button id="english-btn" class="lang-btn" onclick="toggleLanguage('english')"></button>
         </div>
+
         <div class="right-column">
-            <button id="deutsch" onclick="linkto('de/home')"></button>
+            <button id="deutsch-btn" class="lang-btn" onclick="toggleLanguage('german')"></button>
         </div>
+
+        <!-- W O W !   D I V I D E R   ---------------------------->
+
+        <div class="enter-btn english" id="english-enter">
+            <a href="/en/home.html"><img src="assets/images/landing/enter_eng.png" alt=""></a>
+        </div>
+
+        <div class="enter-btn german hidden" id="german-enter">
+            <a href="/de/home.html"><img src="assets/images/landing/betreten_ger.png" alt=""></a>
+        </div>
+
     </div>
 
 </body>
