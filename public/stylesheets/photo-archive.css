@@ -1,0 +1,46 @@
+:root {
+
+    --picture-width: 400px;
+
+}
+
+
+.picture {
+
+    width: var(--picture-width);
+    height: calc(var(--picture-width) + 1.125em + 18*2);
+    display: inline-block;
+
+    border-radius: 20px;
+    background-color: var(--base-orange);
+    padding-inline: var(--padding);
+    padding-bottom: var(--padding);
+    margin-bottom: 20px;
+
+
+}
+.picture img {
+
+    object-fit: cover;
+    
+    width: var(--picture-width);
+    height: var(--picture-width);
+    border-radius: 20px;
+
+}
+
+.picture p {
+
+    font-size: small;
+
+}
+
+@media (width < 420px) {
+
+    :root {
+
+        --picture-width: 300px;
+
+    }
+    
+}
