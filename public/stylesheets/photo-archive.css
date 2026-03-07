@@ -8,7 +8,7 @@
 .picture {
 
     width: var(--picture-width);
-    height: calc(var(--picture-width) + 1.125em + 18*2);
+    height: calc(var(--picture-width) + 1.125em + 18px*5);
     display: inline-block;
 
     border-radius: 20px;
@@ -32,6 +32,17 @@
 .picture p {
 
     font-size: small;
+
+}
+
+.collection {
+    overflow-y: scroll;
+    max-height: 80%;
+}
+
+.collection img {
+
+    margin-bottom: 10px;
 
 }
 
