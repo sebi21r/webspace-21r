@@ -8,10 +8,11 @@
     --content-width: 1400px;
     --nav-bar-height: 50px;
     --nav-item-width: ;
+    --center: calc((100% - var(--content-width))/2 - var(--content-padding));
 
-    --base-orange: rgb(252, 180, 110);
-    --base-accent: color-mix(in srgb, var(--base-orange) 60%, purple 40%);
-    --background-color: rgba(95, 95, 95, 0.5);
+    --base-color: rgb(110, 212, 252);
+    --base-accent: rgb(180, 193, 255);
+    --background-color: rgb(0, 4, 21);
 
     --bg-animation-speed: 12s;
 
@@ -19,8 +20,8 @@
 
 ::selection {
 
-    background-color: purple;
-    color: white;
+    background-color: color-mix(in srgb, var(--base-color) 50%, white 50%);
+    color: black;
 
 }
 
@@ -29,14 +30,14 @@
 a,
 li,
 h3 {
-    color: black;
+    color: white;
     font-family: sans-serif;
 }
 
 h1 {
 
     font-size: x-large;
-    color: black;
+    color: white;
     font-family: sans-serif;
     margin:0;
 
@@ -45,7 +46,7 @@ h1 {
 p{
 
     font-size: 1.125em;
-    color: black;
+    color: white;
     font-family: sans-serif;
     line-height: 1.3em;
 
@@ -60,7 +61,7 @@ body {
 
     background-image: url(assets/images/bg.gif);
     animation: background var(--bg-animation-speed) linear infinite;
-    background-color: rgb(0, 1, 11);
+    background-color: rgb(0, 0, 0);
     padding: var(--padding);
     /*cursor: url("pics/testcur.png"), default;*/
     
@@ -102,7 +103,7 @@ u {
     cursor: pointer;
     background-position: left;
     
-    color: white;
+    color: var(--background-color);
 
 }
 
@@ -114,10 +115,10 @@ u {
     width: var(--content-width);
     background-color: var(--background-color);
     border-radius: 10px;
-    border: 3px var(--base-orange) solid;
-    box-shadow: 0px 0px 10px var(--base-orange);
+    border: 3px var(--base-color) solid;
+    box-shadow: 0px 0px 10px var(--base-color);
     padding: var(--content-padding);
-    margin-left: calc((100% - var(--content-width))/2 - var(--content-padding));
+    margin-left: var(--center);
     display: flex;
     justify-content:space-between;
     flex-wrap: wrap;
@@ -132,13 +133,19 @@ u {
 
 }
 
+.sticky {
+    position: sticky;
+    top: 10;
+}
+
 .text {
 
     width: 615px;
     display: inline-block;
 
-    border-radius: 20px;
-    background-color: var(--base-orange);
+    /*border-radius: 20px;
+    background-color: var(--base-color);*/
+    border: var(--base-color) solid 2px;
     margin-bottom: 20px;
     padding: var(--padding);
 
@@ -148,6 +155,11 @@ u {
 .box-shadow {
 
     box-shadow: 10px 10px 0px var(--base-accent);
+    transition: all 250ms;
+
+}
+.box-shadow:hover {
+    box-shadow: 7px 7px 0px var(--base-accent);
 
 }
 
@@ -166,11 +178,11 @@ u {
     width: var(--content-width);
     background-color: var(--background-color);
     border-radius: 10px;
-    border: 3px var(--base-orange) solid;
-    box-shadow: 0px 0px 10px var(--base-orange);
+    border: 3px var(--base-color) solid;
+    box-shadow: 0px 0px 10px var(--base-color);
     padding-inline: var(--content-padding);
     min-height: var(--nav-bar-height);
-    margin-left: calc((100% - var(--content-width))/2 - var(--content-padding));
+    margin-left: var(--center);
     margin-bottom: var(--padding);
 
 }
@@ -207,7 +219,7 @@ u {
 }
 .nav-item:hover a {
 
-    color: var(--base-orange);
+    color: var(--base-color);
     cursor: pointer;
 
 }
@@ -224,7 +236,7 @@ u {
     bottom: -1;
     height: 2.5px;
     width: 100%;
-    background-color: var(--base-orange);
+    background-color: var(--base-color);
 
     scale: 1 1;
 
@@ -280,23 +292,32 @@ u {
     .left-column,
     .right-column {
 
-        width: 100%;
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+        width: 90%;
 
     }
 
     .content {
 
-        display: inline-block;
+        display: grid;
+        gap: 20px;
+        grid-auto-flow: column;
+        grid-auto-columns: 90%;
+
+        overflow-x: scroll;
+        overscroll-behavior-inline: contain;
 
     }
     .text {
 
         width: 615px;
 
+    }
+    
+}
+@media (width < 820px) {
+
+    .text{
+        width: 90%;
     }
     
 }
@@ -325,11 +346,14 @@ u {
         box-shadow: none;
         background-color: var(--background-color);
 
+        
+        background-image: url(assets/images/bg.gif);
+        animation: background var(--bg-animation-speed) linear infinite;
     }
 
     .text {
 
-        width: 90%;
+        background-color: var(--background-color);
 
     }
     

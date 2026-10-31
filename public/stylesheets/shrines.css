@@ -4,35 +4,21 @@
     display: inherit;
 
 }
-.text > p {
-
-    position: relative;
-    top: -30px;
-}
 .shrine {
 
     padding-top: 20px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: calc(50% - var(--content-padding)) calc(50% - var(--content-padding));
+    gap: 20px;
     border: 0px transparent solid;
-    border-radius: 10px;
+
 
     margin-top: 10px;
     margin-bottom: 10px;
 
 }
 
-.shrine > .text {
 
-    width: auto;
-    min-width: 615px;
-    max-width: 810px;
-    border: 16px solid transparent;
-    box-shadow: 5px 5px 20px black;
-    text-align: center;
-    
-
-}
 .title-img {
 
     max-height: 100px;
@@ -42,70 +28,25 @@
 
     max-height: 100px;
     object-fit: contain;
+    
+    width: 100%;
 
 }
+footer {
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+}
+
 
 
 /*I have figured out a formular
 for the best offset for the footer:
  formular is 20-borderwidth*/
 
-#intro > .text {
-
-    background-color: var(--base-orange);
-
-}
 #intro {
 
-    background-color: var(--base-accent);
+    background-color: var(--background-color);
+    border: var(--base-color) solid 2px;
 
 }
-
-#minecraft > .text {
-    
-    border: 16px solid transparent;
-    border-image: url(/assets/images/shrines/grass.png) 20 repeat;
-
-}
-#minecraft {
-
-    background-image: url(/assets/images/shrines/dirt.png);
-    background-size: 48px;
-
-}
-#minecraft  footer {
-
-    font-size: 12px;
-    position: relative;
-    bottom: 4px; 
-    font-family: sans-serif;
-
-}
-
-#satisfactory {
-
-    /*Keep this at least for inspiration*/
-    background-image: repeating-linear-gradient(40deg, rgb(250,149,73) 0% 3%, rgb(95,102,140) 3% 5%);
-
-}
-#satisfactory > .text {
-
-    border: 40px solid transparent;
-    border-image: url(/assets/images/shrines/SatisBorder.png) 150 round;
-    border-image-outset: 20px;
-}
-#satisfactory .title-img {
-
-    position: relative;
-    top: -30px;
-
-}
-#satisfactory  footer {
-
-    font-size: 12px;
-    position: relative;
-    bottom: -20px; 
-    font-family: sans-serif;
-
-}
-

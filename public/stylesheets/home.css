@@ -11,8 +11,9 @@
     height: calc(var(--pic-corner-width) + 1.125em + 18*2);
     display: inline-block;
 
-    border-radius: 20px;
-    background-color: var(--base-orange);
+    /*border-radius: 20px;
+    background-color: var(--base-color);*/
+    border: var(--base-color) solid 2px;
     padding-inline: var(--padding);
     padding-bottom: var(--padding);
 
@@ -32,6 +33,7 @@
     width: var(--pic-corner-width);
     height: var(--pic-corner-width);
     border-radius: 20px;
+    border: var(--base-color) solid 2px;
 
 }
 
@@ -49,6 +51,15 @@
 
     }
     
+}
+
+@media (width < 700px) {
+    
+    .pic-corner {
+        
+        background-color: var(--background-color);
+    }
+
 }
 
 @media (width < 420px) {

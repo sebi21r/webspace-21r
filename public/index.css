@@ -6,8 +6,8 @@
     height: 50px;
     background-color: rgb(95, 95, 95);
     border-radius: 10px;
-    border: 3px var(--base-orange) solid;
-    box-shadow: 0px 0px 10px var(--base-orange);
+    border: 3px var(--base-color) solid;
+    box-shadow: 0px 0px 10px var(--base-color);
     margin-left: calc((100% - var(--content-width))/2);
     margin-bottom: 20px;
     overflow: hidden;
@@ -49,23 +49,20 @@
 .lang-btn {
 
     aspect-ratio: 5/1;
-    width: 300px;
+    width: 180px;
     background-size: cover;
     background-color: rgba(0,0,0,0);
-    border: none;
     filter: grayscale(100);
-    margin-left: calc(50% - (300px/2));
+    margin-left: calc(50% - (180px/2));
+    text-align: center;
+    padding-bottom: 0;
+    padding-top: 5px;
 
 }
 
-#deutsch-btn {
+.lang-btn > p {
 
-    background-image: url(assets/images/landing/deutsch.png);
-
-}
-#english-btn {
-
-    background-image: url(assets/images/landing/english.png);
+    margin-block: 5px;
 
 }
 
@@ -83,16 +80,20 @@
     border: none;
     text-align: center;
 }
+.enter-btn .text {
 
-.enter-btn img {
-    background-size: cover;
-    width: 50%;
+    width: 180px;
+
 }
 
 @media (width < 1100px) {
 
     .lang-btn {
         margin-right: calc(50% - (300px/2));
+    }
+
+    .content {
+        display: inline-block;
     }
     
 }
@@ -115,6 +116,10 @@
 
         border: none;
         box-shadow: none;
+    }
+    .lang-btn {
+        
+        background-color: var(--background-color);
     }
     
 }

@@ -1,0 +1,41 @@
+
+
+body {
+    background-image: url(/assets/images/shrines/minecraft/background.png);
+    animation: background var(--bg-animation-speed) linear infinite;
+}
+.content {
+
+    border: 16px solid transparent;
+    border-image: url(/assets/images/shrines/minecraft/grass.png) 20 repeat;
+    background-image: url(/assets/images/shrines/minecraft/dirt.png);
+    background-size: 48px;
+    box-shadow: none;
+}
+.title-img {
+
+    width: 100%;
+    max-height: 150px;
+}
+.title-img > img {
+
+    max-height: 150px;
+
+}
+p {
+    font-family: Minecraft;
+    font-size: 1.5em;
+}
+
+
+
+@media (width < 700px) {
+    .content {
+        animation: none;
+    }
+}
+
+@font-face {
+    font-family: Minecraft;
+    src: url(/fonts/Minecraft-Seven_v2.woff2);
+}

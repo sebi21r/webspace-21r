@@ -4,8 +4,8 @@
     width: var(--content-width);
     background-color: var(--background-color);
     border-radius: 10px;
-    border: 3px var(--base-orange) solid;
-    box-shadow: 0px 0px 10px var(--base-orange);
+    border: 3px var(--base-color) solid;
+    box-shadow: 0px 0px 10px var(--base-color);
     padding: var(--content-padding);
     margin-left: calc((100% - var(--content-width))/2 - var(--content-padding));
     display: flex;
@@ -84,8 +84,7 @@ ul > li {
         margin-left: 0;
         width: auto;
         border: none;
-        box-shadow: none;
-        background-color: rgba(95, 95, 95, 0.5);
+        box-shadow: none;   
 
     }
 
